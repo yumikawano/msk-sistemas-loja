@@ -20,6 +20,7 @@ const HeaderStyled = styled.header`
   display: flex;
   background: #0F52BA;
   width: 100%;
+  height: 101px;
   padding: 0 2rem;
 `;
 const ContainerStyled = styled.div`
@@ -37,6 +38,7 @@ const TitleStyled = styled.h1`
   font-weight: 600;
   font-size: 40px;
   line-height: 19px;
+  color: #ffff;
 `;
 const TextStyled = styled.p`
 margin-left: 160px;
@@ -46,6 +48,7 @@ font-style: normal;
 font-weight: 300;
 font-size: 20px;
 line-height: 19px;
+color: #ffff;
 `;
 const ButtonStyled = styled.button`
   width: 90px;
