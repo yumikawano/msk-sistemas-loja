@@ -8,20 +8,26 @@ import { Button, Container } from "react-bootstrap";
 import { Card, Row, Col } from "react-bootstrap";
 import { Loading } from "../../components/Loading";
 import { addToCart } from "../../store/slices/cardSlice"
+import { toast } from 'react-toastify'
+
+type productsProps = product | null
 
 export function HomeView () {
-    const [products]:any = useState()
-
-    async function pegprodutos() {
-            const result = await getProducts();
-            console.log(result)
-    } 
-
+    const [products, setProducts]:any = useState()
     useEffect(() => {
-        pegprodutos();
-    }, []);
-
-        const dispatch = useDispatch()
+        const fetch = async ():Promise<void | productsProps > => {
+            try{
+                const result = await getProducts()
+                setProducts(result)
+           } catch{
+                toast.error('Erro ao carregar produtos. Tente novamente', {
+                    theme: 'colored'
+                })
+           }      
+        }
+        fetch()
+    }, [])
+    const dispatch = useDispatch()
     const navigate = useNavigate()
         const handleAddToCart = (item:product) => {
             dispatch(addToCart(item))
