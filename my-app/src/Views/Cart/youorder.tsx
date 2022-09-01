@@ -26,7 +26,7 @@ export function YouOrder (  { products }:productCart) {
             {products.map(product => 
                     <>
                 <DivImageAndProduct>
-                        <img src={product.image} alt={product.name} height={100} width={100}/>
+                        <img src={product.photo} alt={product.name} height={100} width={100}/>
                         <div>
                             <h5>{product.name}</h5>
                             <p>{product.description}</p>

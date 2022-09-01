@@ -18,7 +18,7 @@ export function HomeView () {
         const fetch = async ():Promise<void | productsProps > => {
             try{
                 const result = await getProducts()
-                setProducts(result)
+                setProducts(result.products)
            } catch{
                 toast.error('Erro ao carregar produtos. Tente novamente', {
                     theme: 'colored'
@@ -44,7 +44,7 @@ export function HomeView () {
                         {products.map((item:product) => (
                             <Col key={item.id} className='mb-4' xs={6} md={4} lg={3}>
                             <Card className='text-center shadow h-100' key={item.name}>
-                                <Card.Img variant="top" src={item.image} alt={item.name} width={220} height={220}/>
+                                <Card.Img variant="top" src={item.photo} alt={item.name} width={220} height={220}/>
                                 <Card.Body className='d-flex flex-column align-items-center'>
                                 <Card.Title as='h2' className='h5'>{item.name}</Card.Title>
                                 <Card.Text>{item.description}</Card.Text>
